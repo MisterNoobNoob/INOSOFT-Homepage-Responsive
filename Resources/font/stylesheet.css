@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Korb';
+    src: url('Korb.eot');
+    src: local('Korb'),
+        url('Korb.eot?#iefix') format('embedded-opentype'),
+        url('Korb.woff2') format('woff2'),
+        url('Korb.woff') format('woff'),
+        url('Korb.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Korb';
+    src: url('Korb-Bold.eot');
+    src: local('Korb Bold'), local('Korb-Bold'),
+        url('Korb-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Korb-Bold.woff2') format('woff2'),
+        url('Korb-Bold.woff') format('woff'),
+        url('Korb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Korb';
+    src: url('Korb-Italic.eot');
+    src: local('Korb Italic'), local('Korb-Italic'),
+        url('Korb-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Korb-Italic.woff2') format('woff2'),
+        url('Korb-Italic.woff') format('woff'),
+        url('Korb-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Korb';
+    src: url('Korb-BoldItalic.eot');
+    src: local('Korb Bold Italic'), local('Korb-BoldItalic'),
+        url('Korb-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Korb-BoldItalic.woff2') format('woff2'),
+        url('Korb-BoldItalic.woff') format('woff'),
+        url('Korb-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
