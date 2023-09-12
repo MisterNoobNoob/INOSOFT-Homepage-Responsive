@@ -173,7 +173,7 @@ nav {
   grid-area: weekly;
 }
 
-.s3-NewsGrid-Headline::after {
+.s3-NewsGrid-Headline:after {
   content: "";
   flex-grow: 1;
   height: 1px;
@@ -193,18 +193,31 @@ nav {
 /* img, The item picture */
 .news-pic {
   width: 100%;
-
+  height: 100%;
+  object-fit: cover;
   border-radius: 0.3rem;
+}
+
+.s3-Content {
+  height: 60px;
 }
 
 /* h4, the headline inside of every Item in the sub-grids */
 .s3-Content-HeadLine {
   font-size: 1.125rem;
+  font-weight: 600;
   color: var(--color-main-normal);
+  line-height: 1.1em;
+
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  /* number of lines to show */
-  line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.s3-Content-Phrase {
+  color: var(--color-text-grey);
+  font-size: 0.875rem;
+
+  margin-top: 4px;
 }
