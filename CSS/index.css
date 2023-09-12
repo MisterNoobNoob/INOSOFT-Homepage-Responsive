@@ -45,7 +45,6 @@ nav {
 }
 
 .logo {
-  margin-top: 5px;
   height: 28px;
   width: auto;
 }
@@ -131,4 +130,81 @@ nav {
 .pageHeadline {
   font-size: 3.125rem;
   color: var(--color-text-grey);
+}
+
+/* ! -Section 3- */
+
+.s3-NewsGrid {
+  width: min(var(--content-width), 100vw);
+  margin: 0 auto;
+  padding: 0px 20px 100px 20px;
+
+  display: grid;
+  grid-template-areas:
+    "news ticker"
+    "news weekly"
+  ;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+  column-gap: 4rem;
+}
+
+.news,
+.ticker,
+.weekly {
+  display: grid;
+  column-gap: 0.8em;
+  row-gap: 1em;
+  grid-template-columns: 1fr 5fr;
+}
+
+/* Left side of the Grid "Nachrichten" */
+.news {
+  grid-area: news;
+}
+
+/* Top right side of the Grid "Neuigkeiten" */
+.ticker {
+  grid-area: ticker;
+}
+
+/* Bottom right side of the Grid "Weekly" */
+.weekly {
+  grid-area: weekly;
+}
+
+.s3-NewsGrid-Headline::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background: var(--color-main-normal);
+  min-width: 20px;
+  margin: auto auto auto 20px;
+}
+
+/* h3, the Headline for the sub-grids */
+.s3-NewsGrid-Headline {
+  grid-column: span 2;
+
+  font-size: 1.875rem;
+  color: var(--color-main-normal);
+}
+
+/* img, The item picture */
+.news-pic {
+  width: 100%;
+
+  border-radius: 0.3rem;
+}
+
+/* h4, the headline inside of every Item in the sub-grids */
+.s3-Content-HeadLine {
+  font-size: 1.125rem;
+  color: var(--color-main-normal);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
