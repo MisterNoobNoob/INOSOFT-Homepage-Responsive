@@ -22,6 +22,7 @@ a {
   color: var(--color-text-white);
 }
 
+/* Homepage Header inside body */
 header {
   background-color: white;
   overflow: hidden;
@@ -35,6 +36,7 @@ header {
   align-items: center;
 }
 
+/* Navigation bar inside Header */
 nav {
   width: min(var(--content-width), 100%);
   margin: 0px 20px;
@@ -44,11 +46,13 @@ nav {
   align-items: center;
 }
 
+/* img - INOSOFT logo inside nav */
 .logo {
   height: 28px;
   width: auto;
 }
 
+/* ul - List inside of nav holding navigation links */
 .navLinks {
   list-style: none;
   display: flex;
@@ -57,40 +61,41 @@ nav {
   gap: 1vw;
 }
 
-.usaFlag {
-  height: 15px;
-  width: 16px;
-}
-
 .navLinks>li>a {
   color: var(--color-main-normal);
   font-size: 1.2rem;
 }
 
+/* img - inside of navLinks swaping language to english on press(not working) */
+.usaFlag {
+  height: 15px;
+  width: 16px;
+}
+
 /*! -Section 1- */
 
+/* Section - first main element */
 .s1-Slider {
   width: 100vw;
   height: 396px;
+
   background: url(/Resources/slider1-developement.jpg) no-repeat center center;
   background-size: cover;
   overflow: hidden;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* MediaQuerry - change background picture if screen is too narrow */
 @media only screen and (max-width: 1023px) {
   .s1-Slider {
     background: url(/Resources/slider1-developement-small.jpg) no-repeat center center;
   }
 }
 
-.sliderPic {
-  width: 100%;
-  height: auto;
-}
-
+/*  */
 .sliderTxt {
   width: min(var(--content-width), 100%);
   margin: 20px;
@@ -153,8 +158,8 @@ nav {
 .ticker,
 .weekly {
   display: grid;
-  column-gap: 0.8em;
-  row-gap: 1em;
+  column-gap: 1em;
+  row-gap: 1.25em;
   grid-template-columns: 1fr 5fr;
 }
 
