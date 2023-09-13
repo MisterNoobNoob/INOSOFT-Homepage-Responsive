@@ -187,14 +187,6 @@ nav {
   margin: auto auto auto 20px;
 }
 
-/* h3, the Headline for the sub-grids */
-.s3-NewsGrid-Headline {
-  grid-column: span 2;
-
-  font-size: 1.875rem;
-  color: var(--color-main-normal);
-}
-
 /* img, The item picture */
 .news-pic {
   width: 100%;
