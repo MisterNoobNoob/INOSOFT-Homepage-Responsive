@@ -461,8 +461,6 @@ nav {
 .s7-job {
 	width: 100%;
 	height: 200px;
-	margin-bottom: 100px;
-
 
 	background: linear-gradient(to bottom right, 
 		var(--color-main-normal), 
@@ -508,4 +506,30 @@ nav {
 
 .s7-Content>a>img {
 	height: 100%;
+}
+
+/* ! -Section 8- Vids */
+
+.s8-vids {
+	width: 100%;
+	min-height: 180px;
+	margin: 100px 0;
+
+	display: flex;
+	justify-content: center;
+}
+
+.s8-grid {
+	width: var(--content-width);
+	margin: 0 20px;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 10px;
+}
+
+.s8-grid>* {
+	height: 100%;
+	width: 100%;
+	background-color: var(--color-text-grey);
 }
