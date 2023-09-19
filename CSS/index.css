@@ -326,7 +326,7 @@ nav {
 
 .s5-peekblue {
 	width: 100%;
-	background: url(/Resources/MicrosoftTeams-image.png) no-repeat center center fixed;
+	background: url(/Resources/arbeitsplatz-gr-desktop.jpg) no-repeat center center fixed;
 	background-size: cover;
 	padding: 50px 0;
 	display: flex;
@@ -532,4 +532,77 @@ nav {
 	height: 100%;
 	width: 100%;
 	background-color: var(--color-text-grey);
+	border-radius: 5px;
+}
+
+.s8-grid>*>img {
+	width: 100%;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	border-radius: 5px;
+	margin-bottom: 0.5rem;
+}
+
+.s8-grid>*>p {
+	padding: 0 5px 5px 5px;
+	color: var(--color-text-white);
+}
+
+/* ! -Section 9- Window*/
+
+.s9-Window {
+	background: url(/Resources/arbeitsplatz-desktop.jpg) 
+		center
+		center
+		fixed
+		no-repeat
+	;
+	height: 260px;
+	width: 100%;
+}
+
+/* ! Footer */
+
+footer {
+	align-items: center;
+	background-color: var(--color-main-normal);
+	color: var(--color-text-white);
+	display: flex;
+	flex-direction: column;
+	font-size: 1.2rem;
+	width: 100%;
+}
+
+.footer-content {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: 2fr repeat(4, 1fr);
+	max-width: var(--content-width);
+	margin: 30px 20px;
+	width: calc(100% - 40px);
+}
+
+.h7 {
+	font-weight: bold;
+}
+
+.riki {
+	text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.footer-content>div>p {
+	margin-bottom: 10px;
+}
+
+.footer-content>div>p>a {
+	border-bottom: 1px white dotted;
+}
+
+footer>p {
+	font-size: 0.9rem;
+	margin: 0px 20px 5px 20px;
+	max-width: var(--content-width);
+	width: calc(100% - 40px);
 }
