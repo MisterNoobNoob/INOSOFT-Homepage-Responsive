@@ -1,7 +1,25 @@
+/** Fonts */
+
 @font-face {
 	font-family: "KorbRegular";
 	src: url("/Resources/font/Korb.ttf");
 }
+
+/** Animations */
+
+@keyframes slide-in-bck-left {
+	from {
+		transform: translateX(-400px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+/** HTML Classes */
 
 :root {
 	--color-main-darker: rgba(3, 79, 90, 1);
@@ -151,6 +169,14 @@ nav {
 }
 
 /* ! -Section 2- */
+
+.slide-in-bck-left {	
+	animation-name: slide-in-bck-left;
+	animation-duration: 1.5s;
+	animation-delay: 1s;
+	animation-timing-function: ease-in-out;
+}
+
 
 .s2-PageHeader {
 	max-width: var(--content-width);
