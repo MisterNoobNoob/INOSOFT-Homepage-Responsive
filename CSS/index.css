@@ -42,7 +42,7 @@ a {
 	color: var(--color-text-white);
 }
 
-/* Homepage Header inside body */
+/* !Homepage Header inside body */
 header {
 	background-color: white;
 	overflow: hidden;
@@ -63,6 +63,12 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+@media screen and (max-width: 770px) {
+	.navLinks {
+		visibility: hidden;
+	}
 }
 
 /* img - INOSOFT logo inside nav */
