@@ -1,8 +1,8 @@
 /** Fonts */
 
 @font-face {
-	font-family: "KorbRegular";
 	src: url("/Resources/font/Korb.ttf");
+	font-family: "KorbRegular";
 }
 
 /** Animations */
@@ -42,7 +42,7 @@ a {
 	color: var(--color-text-white);
 }
 
-/* !Homepage Header inside body */
+/** Homepage Header inside body */
 header {
 	background-color: white;
 	overflow: hidden;
@@ -65,10 +65,8 @@ nav {
 	align-items: center;
 }
 
-@media screen and (max-width: 770px) {
-	.navLinks {
-		visibility: hidden;
-	}
+.hamburger, .hamburger-label {
+	display: none;
 }
 
 /* img - INOSOFT logo inside nav */
@@ -95,6 +93,25 @@ nav {
 .usaFlag {
 	height: 15px;
 	width: 16px;
+}
+
+@media screen and (max-width: 770px) {
+	.navLinks {
+		/* visibility: hidden; */
+		position: fixed;
+
+		align-items: center;
+		background-color: var(--color-main-normal);
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		justify-content: right;
+		list-style: none;
+	}
+
+	.navLinks>li>a {
+		color: var(--color-text-white);
+	}
 }
 
 /*! -Section 1- */
@@ -436,7 +453,7 @@ nav {
 
 .s6-wrapper>* {
 	width: 100%;
-	min-height: 145px;
+	min-heisght: 145px;
 	border-radius: 5px;
 	padding: 0.3em 0.5em;
 
