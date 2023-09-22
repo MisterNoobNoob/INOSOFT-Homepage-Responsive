@@ -5,8 +5,65 @@
 	font-family: "KorbRegular";
 }
 
+/** Utility */
+
+.animation--speed-short {
+	animation-duration: 0.5s;
+}
+
+.animation--speed-normal {
+	animation-duration: 1s;
+}
+
+.animation--delay-05s {
+	animation-delay: 0.5s;
+}
+
+.animation--delay-1s {
+	animation-delay: 1s;
+}
+
+.zoom-in {
+	animation-name: zoom-in;
+	animation-fill-mode: both;
+	animation-timing-function: ease-out;
+}
+
+.slide-in-bottom {
+	animation-name: slide-in-bottom;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: both;
+}
+
 /** Animations */
 
+@keyframes zoom-in {
+	from {
+		transform: scale(0.3);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-in-bottom {
+	from {
+		transform: translateY(200px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+
+
+/* TODO: Figure out how to do animations without position
 @keyframes slide-in-bck-left {
 	from {
 		transform: translateX(-400px);
@@ -17,7 +74,10 @@
 		transform: translateX(0);
 		opacity: 1;
 	}
-}
+} */
+
+
+
 
 /** HTML Classes */
 
@@ -28,6 +88,7 @@
 	--color-text-white: white;
 	--content-width: 1100px;
 	--content-margin: 20px;
+	--zoom-in-delay: 0;
 	min-width: 300px;
 }
 
@@ -65,9 +126,10 @@ nav {
 	align-items: center;
 }
 
+/* TODO: Get the responsive menu to work
 .hamburger, .hamburger-label {
 	display: none;
-}
+} */
 
 /* img - INOSOFT logo inside nav */
 .logo {
@@ -89,37 +151,61 @@ nav {
 	font-size: 1.2rem;
 }
 
+.navLinks>li>a:hover {
+	color: var(--color-text-grey);
+}
+
 /* img - inside of navLinks swaping language to english on press(not working) */
 .usaFlag {
 	height: 15px;
 	width: 16px;
 }
 
+/* TODO: Get the responsive menu to work
 @media screen and (max-width: 770px) {
-	.navLinks {
-		/* visibility: hidden; */
-		position: fixed;
-
-		align-items: center;
-		background-color: var(--color-main-normal);
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-		justify-content: right;
-		list-style: none;
+	.hamburger-label {
+		display:block;
 	}
 
+	.hamburger {
+		position: absolute;
+		z-index: 1;
+		display: block;
+	}
+
+	.navLinks {
+		position: fixed;
+		left: calc(100% - 125px);
+		top: 56px;
+		display: none;
+
+		align-items: start;
+		padding: 0 5px;
+		background-color: var(--color-main-normal);
+		flex-direction: column;
+		gap: 15px;
+		justify-content: right;
+		list-style: none;
+		overflow: visible;
+	}
+	
 	.navLinks>li>a {
 		color: var(--color-text-white);
 	}
-}
+	
+	* input:checked ~ .navLinks {
+		display: flex;
+	}
+} 
+*/
 
 /*! -Section 1- */
 
 /* Section - first main element */
 .s1-Slider {
 	width: 100%;
-	height: 396px;
+	height: 336px;
+	padding-top: 60px;
 
 	background: url(/Resources/slider1-developement.jpg) no-repeat center center;
 	background-size: cover;
@@ -139,12 +225,16 @@ nav {
 
 /*  */
 .sliderTxt {
-	width: var(--content-width);
+	max-width: calc(var(--content-width) - 40px);
+	width: 100%;
+	height: calc(100% - 40px);
 	margin: 20px;
 
 	display: flex;
 	flex-direction: column;
+
 	align-items: start;
+	justify-content: center;
 
 	color: var(--color-text-white);
 }
@@ -158,47 +248,21 @@ nav {
 
 .sliderPhrase {
 	max-width: 580px;
-	padding-bottom: 20px;
 	margin-bottom: 22px;
 
 	font-size: 1.25rem;
 	line-height: 1.4em;
 }
 
-/* ! -Section 1.5- lane 9 3/4*/
-
-.lane-9-3slash4 {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-}
-
-.content-grid {
-	display: grid;
-	gap: 20px;
-	grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-	margin: 0 20px 100px 20px;
-	max-width: var(--content-width);
-	width: calc(100% - 40px);
-}
-
-.content-grid>a {
-	width: 100%;
-}
-
-.content-grid>a>img {
-	border-radius: 5px;
-	width: 100%;
-}
 
 /* ! -Section 2- */
-
+/* TODO: make it work
 .slide-in-bck-left {	
 	animation-name: slide-in-bck-left;
 	animation-duration: 1.5s;
 	animation-delay: 1s;
 	animation-timing-function: ease-in-out;
-}
+} */
 
 
 .s2-PageHeader {
@@ -216,6 +280,38 @@ nav {
 .pageHeadline {
 	font-size: 3.125rem;
 	color: var(--color-text-grey);
+}
+
+/* ! -Section 2.5- lane 9 3/4*/
+
+.lane-9-3slash4 {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.content-grid {
+	display: grid;
+	gap: 30px;
+	grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+	margin: 0 20px 100px 20px;
+	max-width: var(--content-width);
+	width: calc(100% - 40px);
+}
+
+.content-grid>a {
+	width: 100%;
+}
+
+
+.content-grid>a>img {
+	border-radius: 5px;
+	width: 100%;
+	transition: transform 0.3s
+}
+
+.content-grid>a>img:hover {
+	transform: scale(1.1);
 }
 
 /* ! -Section 3- */
@@ -289,6 +385,11 @@ nav {
 	height: 100%;
 	object-fit: cover;
 	border-radius: 0.3rem;
+	transition: transform 0.3s;
+}
+
+.news-pic:hover {
+	transform: scale(1.1);
 }
 
 .s3-Content {
@@ -453,7 +554,7 @@ nav {
 
 .s6-wrapper>* {
 	width: 100%;
-	min-heisght: 145px;
+	min-height: 145px;
 	border-radius: 5px;
 	padding: 0.3em 0.5em;
 
@@ -471,6 +572,14 @@ nav {
 	justify-content: center;
 
 	background-color: var(--color-text-grey);
+}
+
+.s6-wrapper>a {
+	transition: transform 0.3s;
+}
+
+.s6-wrapper>a:hover {
+	transform: scale(1.05);
 }
 
 .s6-item-L {
@@ -615,6 +724,11 @@ nav {
 	object-fit: cover;
 	border-radius: 5px;
 	margin-bottom: 0.5rem;
+	transition: transform 0.3s;
+}
+
+.s8-grid>*>img:hover {
+	transform: scale(1.05);
 }
 
 .s8-grid>*>p {
