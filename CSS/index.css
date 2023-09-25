@@ -60,6 +60,7 @@
 .fixed-width {
 	min-width: fit-content;
 }
+
 /** Animations */
 
 @keyframes zoom-in {
@@ -112,23 +113,6 @@
 	}
 }
 
-
-/* TODO: Figure out how to do animations without position
-@keyframes slide-in-bck-left {
-	from {
-		transform: translateX(-400px);
-		opacity: 0;
-	}
-
-	to {
-		transform: translateX(0);
-		opacity: 1;
-	}
-} */
-
-
-
-
 /** HTML Classes */
 
 :root {
@@ -143,41 +127,37 @@
 }
 
 * {
+	font-family: "KorbRegular";
 	margin: 0px;
 	padding: 0px;
-	font-family: "KorbRegular";
 }
 
 a {
-	text-decoration: none;
 	color: var(--color-text-white);
+	text-decoration: none;
 }
 
-/** Homepage Header inside body */
+/* Homepage Header inside body */
 header {
+	align-items: center;
 	background-color: white;
-	overflow: hidden;
+	box-shadow: 1px 10px 10px 0 rgba(0, 0, 0, .2);
+	display: flex;
+	height: 56px;
+	justify-content: center;
 	position: fixed;
 	width: 100%;
-	height: 56px;
 	z-index: 999;
-	box-shadow: 1px 10px 10px 0 rgba(0, 0, 0, .2);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 /* Navigation bar inside Header */
 nav {
-	width: var(--content-width);
-	margin: 0px 20px;
-
+	align-items: center;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-
+	margin: 0px 20px;
 	transition: max-height .2s ease-out;
+	width: var(--content-width);
 }
 
 /* img - INOSOFT logo inside nav */
@@ -188,11 +168,11 @@ nav {
 
 /* ul - List inside of nav holding navigation links */
 .navLinks {
-	list-style: none;
-	display: flex;
-	justify-content: right;
 	align-items: center;
+	display: flex;
 	gap: 20px;
+	justify-content: right;
+	list-style: none;
 	transition: all 0.2s ease-in-out;
 }
 
@@ -211,11 +191,13 @@ nav {
 	width: 16px;
 }
 
+/* Hamburger menu - hide in landscape */
 .menu-btn,
 .menu-icon {
 	display: none;
 }
 
+/* Hamburger menu */
 .menu-icon {
 	padding: 28px 20px;
 	position: relative;
@@ -223,6 +205,7 @@ nav {
 	cursor: pointer;
 }
 
+/* Hamburger menu - Graphic */
 .nav-icon {
 	background: black;
 	display: block;
@@ -233,6 +216,7 @@ nav {
 	transition: background .2 ease-out;
 }
 
+/* Hamburger menu - Graphic 2*/
 .nav-icon::after,
 .nav-icon::before {
 	background-color: black;
@@ -252,7 +236,7 @@ nav {
 	top: 5px;
 }
 
-
+/* Hamburger menu animate to X on click */
 .menu-btn:checked~.menu-icon>.nav-icon {
 	background-color: transparent;
 }
@@ -267,6 +251,11 @@ nav {
 	top: 0;
 }
 
+.menu-btn:checked~.navLinks {
+	display: flex;
+}
+
+/* Nav - Responsive menu landscape -> Mobile */
 @media (max-width: 800px) {
 	header {
 		overflow: visible;
@@ -294,11 +283,6 @@ nav {
 
 }
 
-.menu-btn:checked~.navLinks {
-	display: flex;
-}
-
-
 /*! -Section 1- */
 
 /* Section - first main element */
@@ -314,8 +298,6 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-
 }
 
 /* MediaQuerry - change background picture if screen is too narrow */
@@ -325,46 +307,47 @@ nav {
 	}
 }
 
-/*  */
+/* Span - Text inside of the slider */
 .sliderTxt {
-	max-width: calc(var(--content-width) - 40px);
 	width: 100%;
+	max-width: calc(var(--content-width) - 40px);
 	height: calc(100% - 40px);
 	margin: 20px;
 
+	color: var(--color-text-white);
+
 	display: flex;
 	flex-direction: column;
-
 	align-items: start;
 	justify-content: center;
-
-	color: var(--color-text-white);
 }
 
-.sliderHeadline {
+/* Headling inside of the slider */
+.sliderTxt h2 {
+	font-size: 2.25rem;
 	max-width: 580px;
 	padding-bottom: 20px;
-
-	font-size: 2.25rem;
 }
 
-.sliderPhrase {
-	max-width: 580px;
-	margin-bottom: 22px;
-
+/* Phrase inside of the slider */
+.sliderTxt p {
 	font-size: 1.25rem;
+	margin-bottom: 22px;
+	max-width: 580px;
 	line-height: 1.4em;
 }
 
 /* ! -Section 2- */
 
+/* Section around Homepage Headline */
 .s2-PageHeader {
-	width: 100%;
 	height: auto;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 }
 
+/* h1 - Homepage Headline */
 .pageHeadline {
 	width: calc(100% + 40px);
 	max-width: var(--content-width);
@@ -373,20 +356,23 @@ nav {
 	color: var(--color-text-grey);
 }
 
+/* Second line of the Headline */
 .pageHeadline div {
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
 }
 
-/* ! -Section 2.5- lane 9 3/4*/
+/* ! -Section 2.5- lane 9 3/4 */
 
-.lane-9-3slash4 {
+/* Sextion -  3 Linked Videos*/
+.lane-9-3quater {
+	width: 100%;
 	display: flex;
 	justify-content: center;
-	width: 100%;
 }
 
+/* Div - Grid */
 .content-grid {
 	display: grid;
 	gap: 30px;
@@ -396,11 +382,12 @@ nav {
 	width: calc(100% - 40px);
 }
 
+/* Link holding the img */
 .content-grid>a {
 	width: 100%;
 }
 
-
+/* Image - Thumbnail */
 .content-grid>a>img {
 	border-radius: 5px;
 	width: 100%;
@@ -419,7 +406,8 @@ nav {
 	padding-bottom: 100px;
 
 	display: grid;
-	grid-template-areas: "news ticker"
+	grid-template-areas:
+		"news ticker"
 		"news weekly"
 	;
 	grid-template-columns: 1fr 1fr;
