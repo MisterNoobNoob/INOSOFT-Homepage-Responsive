@@ -300,6 +300,20 @@ nav {
 	align-items: center;
 }
 
+.s1-Slider::before {
+	position: absolute;
+	content: "";
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 396px;
+	opacity: .4;
+
+	background: linear-gradient(to bottom right,
+			black,
+			transparent);
+}
+
 /* MediaQuerry - change background picture if screen is too narrow */
 @media only screen and (max-width: 1023px) {
 	.s1-Slider {
@@ -310,11 +324,9 @@ nav {
 /* Span - Text inside of the slider */
 .sliderTxt {
 	width: 100%;
-	max-width: calc(var(--content-width) - 40px);
-	height: calc(100% - 40px);
-	margin: 20px;
-
+	max-width: calc(var(--content-width));
 	color: var(--color-text-white);
+	margin: 0 20px;
 
 	display: flex;
 	flex-direction: column;
@@ -349,11 +361,11 @@ nav {
 
 /* h1 - Homepage Headline */
 .pageHeadline {
-	width: calc(100% + 40px);
-	max-width: var(--content-width);
-	padding: 100px 20px;
-	font-size: 3.125rem;
 	color: var(--color-text-grey);
+	font-size: 3.125rem;
+	width: calc(100% - 40px);
+	max-width: var(--content-width);
+	padding: 100px 0;
 }
 
 /* Second line of the Headline */
