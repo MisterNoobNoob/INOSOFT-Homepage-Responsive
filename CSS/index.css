@@ -8,7 +8,7 @@
 /** Utility */
 
 .animation--speed-short {
-	animation-duration: 0.5s;
+	animation-duration: 0.7s;
 }
 
 .animation--speed-normal {
@@ -23,6 +23,14 @@
 	animation-delay: 1s;
 }
 
+.animation--delay-15s {
+	animation-delay: 1.5s;
+}
+
+.animation--delay-2s {
+	animation-delay: 2s;
+}
+
 .zoom-in {
 	animation-name: zoom-in;
 	animation-fill-mode: both;
@@ -35,6 +43,23 @@
 	animation-fill-mode: both;
 }
 
+.slide-in-bck-left {
+	animation-name: slide-in-bck-left;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: both;
+	display: block;
+}
+
+.scale-down {
+	animation-name: scale-down;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: both;
+	display: block;
+}
+
+.fixed-width {
+	min-width: fit-content;
+}
 /** Animations */
 
 @keyframes zoom-in {
@@ -61,6 +86,31 @@
 	}
 }
 
+@keyframes slide-in-bck-left {
+	from {
+		transform: translateZ(700px) translateX(-600px);
+		transform: scale(1.3);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateZ(0) translateX(0);
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes scale-down {
+	from {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
 
 
 /* TODO: Figure out how to do animations without position
@@ -110,6 +160,8 @@ header {
 	position: fixed;
 	width: 100%;
 	height: 56px;
+	z-index: 999;
+	box-shadow: 1px 10px 10px 0 rgba(0, 0, 0, .2);
 
 	display: flex;
 	justify-content: center;
@@ -124,12 +176,9 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
 
-/* TODO: Get the responsive menu to work
-.hamburger, .hamburger-label {
-	display: none;
-} */
+	transition: max-height .2s ease-out;
+}
 
 /* img - INOSOFT logo inside nav */
 .logo {
@@ -144,6 +193,7 @@ nav {
 	justify-content: right;
 	align-items: center;
 	gap: 20px;
+	transition: all 0.2s ease-in-out;
 }
 
 .navLinks>li>a {
@@ -161,43 +211,93 @@ nav {
 	width: 16px;
 }
 
-/* TODO: Get the responsive menu to work
-@media screen and (max-width: 770px) {
-	.hamburger-label {
-		display:block;
+.menu-btn,
+.menu-icon {
+	display: none;
+}
+
+.menu-icon {
+	padding: 28px 20px;
+	position: relative;
+	float: right;
+	cursor: pointer;
+}
+
+.nav-icon {
+	background: black;
+	display: block;
+	height: 2px;
+	width: 18px;
+	position: relative;
+
+	transition: background .2 ease-out;
+}
+
+.nav-icon::after,
+.nav-icon::before {
+	background-color: black;
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	transition: all 0.2s ease-out;
+}
+
+.nav-icon::after {
+	top: -5px;
+}
+
+.nav-icon::before {
+	top: 5px;
+}
+
+
+.menu-btn:checked~.menu-icon>.nav-icon {
+	background-color: transparent;
+}
+
+.menu-btn:checked~.menu-icon>.nav-icon::before {
+	transform: rotate(-45deg);
+	top: 0;
+}
+
+.menu-btn:checked~.menu-icon>.nav-icon::after {
+	transform: rotate(45deg);
+	top: 0;
+}
+
+@media (max-width: 800px) {
+	header {
+		overflow: visible;
 	}
 
-	.hamburger {
-		position: absolute;
-		z-index: 1;
+	.menu-icon {
 		display: block;
 	}
 
 	.navLinks {
-		position: fixed;
-		left: calc(100% - 125px);
-		top: 56px;
 		display: none;
-
+		position: absolute;
+		top: 56px;
+		padding: 10px 20px 10px 10px;
 		align-items: start;
-		padding: 0 5px;
-		background-color: var(--color-main-normal);
+		right: 0;
 		flex-direction: column;
-		gap: 15px;
-		justify-content: right;
-		list-style: none;
-		overflow: visible;
+		background-color: var(--color-main-normal);
 	}
-	
-	.navLinks>li>a {
-		color: var(--color-text-white);
+
+	.navLinks li a {
+		color: lightgray;
+		font-weight: bolder;
 	}
-	
-	* input:checked ~ .navLinks {
-		display: flex;
-	}
-} 
-*/
+
+}
+
+.menu-btn:checked~.navLinks {
+	display: flex;
+}
+
 
 /*! -Section 1- */
 
@@ -214,6 +314,8 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+
 }
 
 /* MediaQuerry - change background picture if screen is too narrow */
@@ -254,32 +356,27 @@ nav {
 	line-height: 1.4em;
 }
 
-
 /* ! -Section 2- */
-/* TODO: make it work
-.slide-in-bck-left {	
-	animation-name: slide-in-bck-left;
-	animation-duration: 1.5s;
-	animation-delay: 1s;
-	animation-timing-function: ease-in-out;
-} */
-
 
 .s2-PageHeader {
-	max-width: var(--content-width);
+	width: 100%;
 	height: auto;
-	margin: 100px auto;
-}
-
-@media only screen and (max-width: 1140px) {
-	.s2-PageHeader {
-		margin: 100px 20px;
-	}
+	display: flex;
+	justify-content: center;
 }
 
 .pageHeadline {
+	width: calc(100% + 40px);
+	max-width: var(--content-width);
+	padding: 100px 20px;
 	font-size: 3.125rem;
 	color: var(--color-text-grey);
+}
+
+.pageHeadline div {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
 }
 
 /* ! -Section 2.5- lane 9 3/4*/
